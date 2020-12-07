@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieXam.Views.MainPage">
+
+    <StackLayout>
+        <ListView x:Name="MovieView" ItemsSource="{Binding Path=Movies}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Entry Text="{Binding Title}" FontSize="Medium"/>
+                                <Entry Text="{Binding Genre}" FontSize="Medium"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <StackLayout x:Name="AddStack" IsVisible="false">
+            <Label Text="write title..."/>
+            <Entry x:Name="_title"/>
+            <Label Text="write genre..."/>
+            <Entry x:Name="_genre"/>
+            <Button Text="Confirm" Clicked="OnConfirmClick"/>
+        </StackLayout>
+
+
+        <Button Text="Add New" Clicked="OnAddClick"/>
+        <Button Text="Remove"  Clicked="OnRemoveClick"/>
+
+
+
+    </StackLayout>
+
+
+</ContentPage>
